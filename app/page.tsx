@@ -1899,6 +1899,64 @@ export default function Home() {
         ::-webkit-scrollbar-thumb:hover {
           background: var(--text2);
         }
+
+        .card-list-lifecycle-primary {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
+          margin: 24px 0;
+        }
+
+        .card-list-lifecycle-secondary {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+          margin: 24px 0;
+        }
+
+        .lifecycle-note {
+          background-color: var(--bg2);
+          border-left: 4px solid var(--accent);
+          padding: 16px 20px;
+          margin: 24px 0;
+          border-radius: 4px;
+          font-size: 14px;
+          color: var(--text);
+          line-height: 1.6;
+        }
+
+        @media (max-width: 1400px) {
+          .card-list-lifecycle-primary {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .card-list-lifecycle-primary {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .card-list-lifecycle-secondary {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .card-list-lifecycle-primary {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .card-list-lifecycle-secondary {
+            grid-template-columns: repeat(1, 1fr);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .card-list-lifecycle-primary {
+            grid-template-columns: repeat(1, 1fr);
+          }
+          .card-list-lifecycle-secondary {
+            grid-template-columns: repeat(1, 1fr);
+          }
+        }
       `}</style>
 
       {/* LOADER */}
@@ -2221,7 +2279,7 @@ export default function Home() {
             />
 
             <AnchorHeading targetId="proposal-lifecycle" title="Proposal Lifecycle" level="h3" />
-            <div className="card-list">
+            <div className="card-list card-list-lifecycle-primary">
               <div className="card">
                 <h4>📋 Idea</h4>
                 <p>Initial discussion and feedback gathering from the community</p>
@@ -2235,8 +2293,25 @@ export default function Home() {
                 <p>Community and core developer review and feedback</p>
               </div>
               <div className="card">
+                <h4>⏳ Last Call</h4>
+                <p>Final feedback period before acceptance. Minor changes only.</p>
+              </div>
+              <div className="card">
                 <h4>✅ Final</h4>
                 <p>Accepted and ready for implementation</p>
+              </div>
+            </div>
+            <div className="lifecycle-note">
+              The Living and Withdrawn statuses/stages represent alternative states that a Proposal may transition to from any stage(except the Idea and Final stages) of the lifecycle.
+            </div>
+            <div className="card-list card-list-lifecycle-secondary">
+              <div className="card">
+                <h4>🌱 Living</h4>
+                <p>Continuously updated proposal/specification that evolves over time.</p>
+              </div>
+              <div className="card">
+                <h4>❌ Withdrawn</h4>
+                <p>Proposal rejected, abandoned, or not pursued further.</p>
               </div>
             </div>
           </section>

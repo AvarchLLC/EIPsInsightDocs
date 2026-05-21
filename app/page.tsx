@@ -998,8 +998,8 @@ export default function Home() {
 
         .stat-number {
           font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
-          font-size: 28px;
-          font-weight: 600;
+          font-size: clamp(42px, 5vw, 58px);
+          font-weight: 700;
           color: var(--accent);
           margin-bottom: 0;
           display: flex;
